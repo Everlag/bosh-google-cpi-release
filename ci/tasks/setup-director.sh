@@ -208,7 +208,6 @@ instance_groups:
         user: agent
         password: agent-password
       port: 25250
-      provider: dav
 
     director:
       address: 127.0.0.1
