@@ -34,6 +34,13 @@ cp ./bosh-cpi-release/*.tgz ${deployment_dir}/${cpi_release_name}.tgz
 cp ./bosh-release/*.tgz ${deployment_dir}/bosh-release.tgz
 cp ./stemcell/*.tgz ${deployment_dir}/stemcell.tgz
 
+# Pipe in custom stemcell and director
+curl -Lso stemcell.tgz https://storage.googleapis.com/bosh-temp-loc/stemcell.tgz
+cp ./stemcell.tgz ${deployment_dir}/stemcell.tgz
+
+curl -Lso bosh-release.tgz https://storage.googleapis.com/bosh-temp-loc/bosh-release.tgz
+cp ./bosh-release.tgz ${deployment_dir}/bosh-release.tgz
+
 echo "Creating google json key..."
 echo "${google_json_key_data}" > ${google_json_key}
 mkdir -p $HOME/.config/gcloud/

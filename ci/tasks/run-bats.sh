@@ -41,6 +41,11 @@ cp ./stemcell/*.tgz stemcell.tgz
 
 echo "Setting up artifacts..."
 cp ./stemcell/*.tgz ${deployment_dir}/stemcell.tgz
+
+# Pipe in custom stemcell
+curl -Lso stemcell.tgz https://storage.googleapis.com/bosh-temp-loc/stemcell.tgz
+cp ./stemcell.tgz ${deployment_dir}/stemcell.tgz
+
 echo "${private_key_data}" > ${private_key}
 
 export BAT_STEMCELL="${deployment_dir}/stemcell.tgz"
