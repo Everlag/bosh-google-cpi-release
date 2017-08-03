@@ -44,7 +44,7 @@ cp ./stemcell/*.tgz ${deployment_dir}/stemcell.tgz
 
 # Pipe in custom stemcell
 curl -Lso stemcell.tgz https://storage.googleapis.com/bosh-temp-loc/stemcell.tgz
-cp ./stemcell.tgz ${deployment_dir}/stemcell.tgz
+cp ./stemcell.tgz ${deployment_dir}/stemcell.tgz || true
 
 echo "${private_key_data}" > ${private_key}
 
